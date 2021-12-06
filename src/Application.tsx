@@ -31,6 +31,7 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
 
     return (
         <div>
+            
             <Switch>
                 {routes.map((route, index) => 
                     <Route
