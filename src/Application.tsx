@@ -1,41 +1,29 @@
-
-import { BrowserRouter, Route, RouteComponentProps, Switch } from 'react-router-dom';
-import logging from "./config/logging";
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import AuthRoute from './components/AuthRoute';
 import routes from './config/routes';
 
+export interface IApplicationProps { }
 
-const Application: React.FunctionComponent<{}> = props => {
-    useEffect(() => {
-        logging.info(`loading application`);    
-  }, [])
+const Application: React.FunctionComponent<IApplicationProps> = props => {
     return (
-        
         <div>
-            <BrowserRouter>
             <Switch>
-
-            {routes.map((route, index) =>{
-                return (
+                {routes.map((route, index) => 
                     <Route
                         key={index}
-                        path={route.path}
-                        exact={route.exact}
-                        render={(props: RouteComponentProps<any>)=>(
-                            <route.component
-                            {...props}
-                            {...route.props}
+                        path={route.path} 
+                        exact={route.exact} 
+                        render={(routeProps: RouteComponentProps<any>) => {
+                            if (route.protected)
+                                return <AuthRoute><route.component  {...routeProps} /></AuthRoute>;
 
-                            />
-                        )}
-
-                    />
-
-                )
-            })}
+                            return <route.component  {...routeProps} />
+                        }}
+                    />)}
             </Switch>
-            </BrowserRouter>
-        </div>);
-    }
+        </div>
+    );
+}
 
 export default Application;

@@ -1,6 +1,5 @@
 const config = {
-    defaults: {
-        namespace: 'Application'
+    firebase: {
     }
 }
 

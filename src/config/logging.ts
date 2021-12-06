@@ -1,6 +1,4 @@
-import config from "./config";
-
-const DEFAULT_NAMESPACE = config.defaults.namespace;
+const DEFAULT_NAMESPACE = 'Client';
 
 const info = (message: any, namespace?: string) => {
     if (typeof message === 'string') {

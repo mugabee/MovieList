@@ -1,22 +1,33 @@
-import IRoute from "../interface/route"
-import AboutPage from "../pages/about";
-import HomePage from "../pages/home";
+const DEFAULT_NAMESPACE = 'Client';
 
-const routes: IRoute[] = [
-    {
-        path: '/',
-        exact: true,
-        component: HomePage,
-        name: 'Home Page',
-      
-    },
-    {
-        path: '/about',
-        exact: true,
-        component: AboutPage,
-        name: 'About Page',
-      
+const info = (message: any, namespace?: string) => {
+    if (typeof message === 'string') {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [INFO] ${message}`);
+    } else {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [INFO]`, message);
     }
-];
+};
 
-export default routes;
+const warn = (message: any, namespace?: string) => {
+    if (typeof message === 'string') {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [WARN] ${message}`);
+    } else {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [WARN]`, message);
+    }
+};
+
+const error = (message: any, namespace?: string) => {
+    if (typeof message === 'string') {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [ERROR] ${message}`);
+    } else {
+        console.log(`[${getDate()}] [${namespace || DEFAULT_NAMESPACE}] [ERROR]`, message);
+    }
+};
+
+const getDate = () => {
+    return new Date().toISOString();
+};
+
+const logging = { info, warn, error };
+
+export default logging;

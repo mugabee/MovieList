@@ -1,3 +1,3 @@
-export default interface IPage {
+export default interface IPageProps {
     name: string;
 }
