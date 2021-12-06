@@ -3,12 +3,12 @@ import IPage from "../interface/page";
 import logging from "../config/logging";
 
 
-const HomePage: React.FunctionComponent<IPage> = props => {
+const AboutPage: React.FunctionComponent<IPage> = props => {
 
     useEffect(() => {
           logging.info(`loading ${props.name}`);    
     }, [])
 
-    return <p>Welcome Home Richard</p>
+    return <p>Welcome About Richard</p>
 }
-export default HomePage;
+export default AboutPage;
