@@ -52,9 +52,9 @@ const LoginPage: React.FunctionComponent<IPageProps> = (props) => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-100">
-      <AuthContainer header="Login">
-        <div className="container sm:mt-40 mt-24 my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
+    <div className=" flex justify-center min-h-screen bg-gray-100">
+      
+        <div className="container sm:mt-40 mt-24 mb-24 my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
           <div className="text-center my-6">
             <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
             <p className="text-gray-500">Sign in to access your account</p>
@@ -126,9 +126,6 @@ const LoginPage: React.FunctionComponent<IPageProps> = (props) => {
             </form>
           </div>
         </div>
-
-        
-      </AuthContainer>
     </div>
   );
 };

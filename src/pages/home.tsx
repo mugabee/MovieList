@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, Container } from 'reactstrap';
-
 import { auth } from '../config/firebase';
 import IPageProps from '../interface/page';
 
 const HomePage: React.FunctionComponent<IPageProps> = props => {
     
     return (
-        <Container>
-            <Card>
+        <div>
+            <div>
                 
-                <CardBody>
+                <div>
                     <p>
                         Welcome to this page that is protected by Friebase auth!<br />
                         Change your password <Link to="/change">here</Link>.
@@ -20,10 +18,10 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                         User: {auth.currentUser?.displayName}<br />
                         Click <Link to="/logout">here</Link> to logout.
                     </p>
-                </CardBody>
-            </Card>
+                </div>
+            </div>
         
-        </Container>
+        </div>
     );
 }
 
