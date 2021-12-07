@@ -1,4 +1,4 @@
-const DEFAULT_NAMESPACE = 'Client';
+const DEFAULT_NAMESPACE = 'MovieApp';
 
 const info = (message: any, namespace?: string) => {
     if (typeof message === 'string') {
