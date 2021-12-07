@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 
+
+
 import AuthRoute from './components/AuthRoute';
 import { auth } from './config/firebase';
 import logging from './config/logging';
@@ -29,7 +31,7 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
   
 
     if (loading)
-        return <p>it is loading now</p>
+        return <p>wait</p>
 
     return (
         <div className=" h-full bg-gray-200">

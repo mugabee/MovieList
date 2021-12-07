@@ -12,5 +12,6 @@
     removeFromWatchList:(id:number) => void;
     addFevorite: (id: number) => void;
     likeMovie: () => void;
-    getMoviesByGenre:(id:string) => void
+    getMoviesByGenre:(id:string) => void;
+    searchMovie:(text:string) => void;
   };
