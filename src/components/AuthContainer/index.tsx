@@ -1,34 +1,23 @@
-import React from 'react';
-import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap';
-
+import React from "react";
 export interface IAuthContainerProps {
-    header: any;
+  header: any;
 }
 
-const AuthContainer: React.FunctionComponent<IAuthContainerProps> = props => {
-    const { children, header } = props;
+const AuthContainer: React.FunctionComponent<IAuthContainerProps> = (props) => {
+  const { children, header } = props;
 
-    return (
-        <Container>
-            <Row>
-                <Col 
-                    xs={{ size: 10, offset: 1 }} 
-                    sm={{ size: 8, offset: 2 }} 
-                    md={{ size: 6, offset: 3 }} 
-                    lg={{ size: 4, offset: 4 }}
-                >
-                    <Card className='mt-5'>
-                        <CardHeader className="bg-primary text-white">
-                            {header} 
-                        </CardHeader>
-                        <CardBody>
-                            {children}
-                        </CardBody>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    );
-}
+  return (
+    <div className="p-20">
+      <div>
+        <div>
+          <div className=" ">
+            <div className=" ">{header}</div>
+            <div>{children}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default AuthContainer;

@@ -127,54 +127,7 @@ const LoginPage: React.FunctionComponent<IPageProps> = (props) => {
           </div>
         </div>
 
-        {/* 
-      <FormGroup>
-        <Input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email Address"
-          onChange={(event) => setEmail(event.target.value)}
-          value={email}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Input
-          autoComplete="new-password"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Enter Password"
-          onChange={(event) => setPassword(event.target.value)}
-          value={password}
-        />
-      </FormGroup>
-      <Button
-        disabled={authenticating}
-        color="success"
-        block
-        onClick={() => signInWithEmailAndPassword()}
-      >
-        Login
-      </Button>
-      <small>
-        <p className="m-1 text-center">
-          Don't have an account? <Link to="/register">Register here.</Link>
-        </p>
-        <p className="m-1 text-center">
-          <Link to="/forget">Forget your password?</Link>
-        </p>
-      </small>
-      <ErrorText error={error} />
-      <hr className="bg-info m-3" />
-      <Button
-        block
-        disabled={authenticating}
-        onClick={() => signInWithSocialMedia(Providers.google)}
-        style={{ backgroundColor: "#ea4335", borderColor: "#ea4335" }}
-      >
-        <i className="fab fa-google mr-2"></i> Sign in with Google
-      </Button> */}
+        
       </AuthContainer>
     </div>
   );
