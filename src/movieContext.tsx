@@ -12,7 +12,9 @@ const contextDefaultValue:MoviesContextState = {
     removeFromWatchList:()=>{},
     getMoviesByGenre:()=>{},
     addFevorite:()=>{},
-    likeMovie:()=>{}
+    likeMovie:()=>{},
+    searchMovie:() => {}
+
 
 }; 
 
@@ -25,6 +27,7 @@ type movieContextProviderProps = {
 
 const MoviesProvider = ({children}:movieContextProviderProps) =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [text, setText] = useState<any[]>([]);
     const [movies, setmovies] = useState<any[]>(contextDefaultValue.movies);
     const [kidsMovies, setKidsMovies] = useState<any[]>([]);
     const [watchList,setWatchlist] = useState<any[]>([]);
@@ -39,6 +42,9 @@ const MoviesProvider = ({children}:movieContextProviderProps) =>{
 
     const addToList = (movie:any) =>{
             setWatchlist([...watchList,movie])
+    }
+    const searchMovie = (searchText:string) =>{
+        
     }
 
     const removeFromWatchList = (id:number) =>{
@@ -97,6 +103,9 @@ const MoviesProvider = ({children}:movieContextProviderProps) =>{
         addToList,
         addFevorite,
         kidsMovies,
+        text, 
+        setText,
+        searchMovie,
 
     }
     return (
