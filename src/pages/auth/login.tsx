@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import AuthContainer from "../../components/AuthContainer";
 import ErrorText from "../../components/ErrorText";
 import { auth, Providers } from "../../config/firebase";
 import logging from "../../config/logging";

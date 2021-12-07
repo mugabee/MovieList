@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
+
 import AuthRoute from './components/AuthRoute';
 import { auth } from './config/firebase';
 import logging from './config/logging';
 import routes from './config/routes';
-import { useContext } from 'react';
-import { MoviesContext } from './movieContext';
+
 export interface IApplicationProps { }
 
 const Application: React.FunctionComponent<IApplicationProps> = props => {
@@ -30,10 +29,10 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
   
 
     if (loading)
-        return <Spinner color="info" />
+        return <p>it is loading now</p>
 
     return (
-        <div>
+        <div className=" h-full bg-gray-200">
             
             <Switch>
                 {routes.map((route, index) => 

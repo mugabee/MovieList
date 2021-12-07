@@ -6,7 +6,9 @@ import LogoutPage from "../pages/auth/logout";
 import RegisterPage from "../pages/auth/register";
 import ResetPasswordPage from "../pages/auth/reset";
 import HomePage from "../pages/home";
-
+import FevoritePage from "../pages/fevorite";
+import WatchList from "../pages/watchlist";
+import MovieDescription from "../pages/movieDescription";
 const routes: IRoute[] = [
     {
         path: '/',
@@ -56,7 +58,30 @@ const routes: IRoute[] = [
         component: ResetPasswordPage,
         name: 'Reset Password Page',
         protected: false
-    }
+    },
+    {
+        path: '/fevorite',
+        exact: true,
+        component: FevoritePage,
+        name: 'fevorite Movies',
+        protected: true
+    },
+    {
+        path: '/watchlist',
+        exact: true,
+        component: WatchList,
+        name: 'My watch list',
+        protected: true
+    },
+    {
+        path: '/movies/:id',
+        exact: true,
+        component: MovieDescription ,
+        name: 'My watch list',
+        protected: true
+    },
+
+
 ];
 
 export default routes;

@@ -6,7 +6,11 @@ import axios from 'axios'
 
 const contextDefaultValue:MoviesContextState = {
     movies:[],
+    watchList:[],
     addmovie:()=>{},
+    addToList:()=>{},
+    removeFromWatchList:()=>{},
+    getMoviesByGenre:()=>{},
     addFevorite:()=>{},
     likeMovie:()=>{}
 
@@ -22,6 +26,8 @@ type movieContextProviderProps = {
 const MoviesProvider = ({children}:movieContextProviderProps) =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [movies, setmovies] = useState<any[]>(contextDefaultValue.movies);
+    const [kidsMovies, setKidsMovies] = useState<any[]>([]);
+    const [watchList,setWatchlist] = useState<any[]>([]);
     const addmovie = (newmovie:any) => setmovies((movies)=>[...movies,newmovie]);
     const addFevorite = async (id:number) => {
         setmovies(movies.filter((movie) => movie.id !== id));
@@ -30,29 +36,67 @@ const MoviesProvider = ({children}:movieContextProviderProps) =>{
     const likeMovie = () =>{
 
     }
-    useEffect(() => {
+
+    const addToList = (movie:any) =>{
+            setWatchlist([...watchList,movie])
+    }
+
+    const removeFromWatchList = (id:number) =>{
+        setWatchlist(watchList.filter((movie)=> movie.id !== id))
+    }
+
+    const getMoviesByGenre =  async (id:string) => {
         try {
-            const fetchdata = async ( ) => {
-            const response = await axios.get("https://api.themoviedb.org/3/movie/550?api_key=6bd132a8b1b6e1b896ba0fb1ae7a2096")
-            console.log(response)
-            setmovies(response.data)
-        }
-        fetchdata();
-    
+
+            console.log(id);
+            const KidsMoviesData = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=6bd132a8b1b6e1b896ba0fb1ae7a2096&with_genres=${id}`)
+            console.log("kids",KidsMoviesData.data);
+            setmovies(KidsMoviesData.data.results);
             
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
-           
-    }, [])
+    }
+
+    useEffect(()=>{
+        const getMovies = async () =>{
+            try {
+                const moviesData = await  axios.get('https://api.themoviedb.org/3/discover/movie?api_key=6bd132a8b1b6e1b896ba0fb1ae7a2096')
+                console.log(moviesData.data);
+                setmovies(moviesData.data.results);
+            } catch (error) {
+                console.log(error)
+            }
+            
+        }
+        getMovies()
+    },[])
+    useEffect(()=>{
+        const getKidsMovies =  async () => {
+            try {
+                const KidsMoviesData = await axios.get('https://api.themoviedb.org/3/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=6bd132a8b1b6e1b896ba0fb1ae7a2096')
+                console.log("kids",KidsMoviesData.data);
+                setKidsMovies(KidsMoviesData.data.results);
+                
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        getKidsMovies();
+    },[])
 
     const value ={
         movies,
+        watchList,
         setmovies,
         addmovie,
+        removeFromWatchList,
+        getMoviesByGenre,
         likeMovie,
-
+        addToList,
         addFevorite,
+        kidsMovies,
 
     }
     return (
