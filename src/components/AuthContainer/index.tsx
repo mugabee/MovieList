@@ -19,7 +19,7 @@ const AuthContainer: React.FunctionComponent<IAuthContainerProps> = props => {
                 >
                     <Card className='mt-5'>
                         <CardHeader className="bg-primary text-white">
-                            {header}
+                            {header} 
                         </CardHeader>
                         <CardBody>
                             {children}

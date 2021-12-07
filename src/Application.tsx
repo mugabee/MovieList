@@ -5,7 +5,8 @@ import AuthRoute from './components/AuthRoute';
 import { auth } from './config/firebase';
 import logging from './config/logging';
 import routes from './config/routes';
-
+import { useContext } from 'react';
+import { MoviesContext } from './movieContext';
 export interface IApplicationProps { }
 
 const Application: React.FunctionComponent<IApplicationProps> = props => {
@@ -25,6 +26,8 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
             setLoading(false);
         })
     }, []);
+   
+  
 
     if (loading)
         return <Spinner color="info" />
